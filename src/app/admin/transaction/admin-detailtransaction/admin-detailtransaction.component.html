@@ -1,0 +1,36 @@
+<div class="details-page">
+  <div class="header">
+    <h1>Transaction Details</h1>
+  </div>
+
+  <div class="content">
+    <div class="details">
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="label">ID:</span>
+          <span class="value">{{ transaction.id }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Date:</span>
+          <span class="value">{{ transaction.transaction_date | date:'dd.MM.YYYY HH:mm' }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Amount:</span>
+          <span class="value">{{ transaction.amount | currency }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Type:</span>
+          <span class="value">{{ transaction.type }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Category:</span>
+          <span class="value">{{ transaction.category.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn secondary" (click)="goBack()">Back</button>
+  </div>
+</div>

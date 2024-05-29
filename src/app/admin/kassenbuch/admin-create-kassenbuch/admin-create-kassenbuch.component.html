@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>{{edit ? 'Update' : 'Create'}} Kassenbuch</h1>
+  <form>
+    <mat-form-field>
+      <mat-label>User</mat-label>
+      <mat-select [(ngModel)]="kassenbuch.user" name="user">
+        <mat-option *ngFor="let user of users" [value]="user">
+          {{user.email}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <button mat-flat-button color="primary" (click)="createKassenbuch()">{{edit ? 'Update' : 'Create'}}</button>
+</div>

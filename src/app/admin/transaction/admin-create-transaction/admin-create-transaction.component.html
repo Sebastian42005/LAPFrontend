@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>{{edit ? 'Update' : 'Create'}} Transaction</h1>
+  <form>
+
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="transaction.amount" name="amount">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="transaction.type" name="type">
+        <mat-option *ngFor="let type of types" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="transaction.category" name="category">
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <button mat-flat-button color="primary" (click)="createTransaction()">{{edit ? 'Update' : 'Create'}}</button>
+</div>

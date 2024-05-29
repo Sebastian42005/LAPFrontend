@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>{{ edit ? 'Update' : 'Create' }} Category</h1>
+  <form>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [(ngModel)]="category.name" name="name">
+    </mat-form-field>
+
+    <div class="color-picker-div">
+      <div
+        ngx-colors-trigger
+        [(ngModel)]="category.color"
+        name="Color"
+        [style.color]="category.color">
+        <mat-icon>palette</mat-icon>
+      </div>
+      <mat-form-field>
+        <mat-label>Color</mat-label>
+        <input matInput type="text" [(ngModel)]="category.color" name="color">
+      </mat-form-field>
+    </div>
+  </form>
+  <button mat-flat-button color="primary" (click)="createCategory()">{{edit ? 'Update' : 'Create'}}</button>
+</div>

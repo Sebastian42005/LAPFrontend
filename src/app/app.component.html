@@ -1,0 +1,13 @@
+<div class="header">
+  <span routerLink="">Statistics</span>
+  <span routerLink="admin/category">Category</span>
+  <span routerLink="admin/kassenbuch">Kassenbuch</span>
+  <span routerLink="admin/transaction">Transaction</span>
+  <span routerLink="admin/user">User</span>
+  @if (!email) {
+    <span class="login" (click)="login()">Login</span>
+  } @else {
+    <span class="login">{{email}}</span>
+  }
+</div>
+<router-outlet></router-outlet>
