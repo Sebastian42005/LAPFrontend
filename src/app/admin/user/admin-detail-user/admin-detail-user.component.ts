@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../../../api.service";
-import {Transaction} from "../../../dto/Transaction";
 import {Location} from "@angular/common";
+import {User} from "../../../dto/User";
 
 @Component({
-  selector: 'app-admin-detailtransaction',
-  templateUrl: './admin-detailtransaction.component.html',
-  styleUrl: './admin-detailtransaction.component.scss'
+  selector: 'app-admin-detail-user',
+  templateUrl: './admin-detail-user.component.html',
+  styleUrl: './admin-detail-user.component.scss'
 })
-export class AdminDetailtransactionComponent implements OnInit {
-  transaction = {} as Transaction
+export class AdminDetailUserComponent implements OnInit {
+  user = {} as User
 
   constructor(private activateRoute: ActivatedRoute,
               private apiService: ApiService,
@@ -19,8 +19,8 @@ export class AdminDetailtransactionComponent implements OnInit {
 
   ngOnInit() {
     this.activateRoute.params.subscribe(param => {
-      this.apiService.getTransaction(param['id']).subscribe(transaction => {
-        this.transaction = transaction;
+      this.apiService.getUser(param['id']).subscribe(user => {
+        this.user = user;
       })
     })
   }

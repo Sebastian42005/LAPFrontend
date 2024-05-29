@@ -27,6 +27,9 @@ import { AdminCreateTransactionComponent } from './admin/transaction/admin-creat
 import { LoginComponent } from './login/login.component';
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import { AdminDetailtransactionComponent } from './admin/transaction/admin-detailtransaction/admin-detailtransaction.component';
+import { AdminDetailCategoryComponent } from './admin/category/admin-detail-category/admin-detail-category.component';
+import { AdminDetailKassenbuchComponent } from './admin/kassenbuch/admin-detail-kassenbuch/admin-detail-kassenbuch.component';
+import { AdminDetailUserComponent } from './admin/user/admin-detail-user/admin-detail-user.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { AdminDetailtransactionComponent } from './admin/transaction/admin-detai
     AdminTransactionComponent,
     AdminCreateTransactionComponent,
     LoginComponent,
-    AdminDetailtransactionComponent
+    AdminDetailtransactionComponent,
+    AdminDetailCategoryComponent,
+    AdminDetailKassenbuchComponent,
+    AdminDetailUserComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../../../api.service";
-import {Transaction} from "../../../dto/Transaction";
 import {Location} from "@angular/common";
+import {Category} from "../../../dto/Category";
 
 @Component({
-  selector: 'app-admin-detailtransaction',
-  templateUrl: './admin-detailtransaction.component.html',
-  styleUrl: './admin-detailtransaction.component.scss'
+  selector: 'app-admin-detail-category',
+  templateUrl: './admin-detail-category.component.html',
+  styleUrl: './admin-detail-category.component.scss'
 })
-export class AdminDetailtransactionComponent implements OnInit {
-  transaction = {} as Transaction
+export class AdminDetailCategoryComponent implements OnInit {
+  category = {} as Category
 
   constructor(private activateRoute: ActivatedRoute,
               private apiService: ApiService,
@@ -19,8 +19,8 @@ export class AdminDetailtransactionComponent implements OnInit {
 
   ngOnInit() {
     this.activateRoute.params.subscribe(param => {
-      this.apiService.getTransaction(param['id']).subscribe(transaction => {
-        this.transaction = transaction;
+      this.apiService.getCategory(param['id']).subscribe(category => {
+        this.category = category;
       })
     })
   }

@@ -5,6 +5,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {ApiService} from "../../../api.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AdminCreateKassenbuchComponent} from "../admin-create-kassenbuch/admin-create-kassenbuch.component";
+import {Router} from "@angular/router";
 import {Kassenbuch} from "../../../dto/Kassenbuch";
 
 @Component({
@@ -20,7 +21,8 @@ export class AdminKassenbuchComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private apiService: ApiService,
-              private matDialog: MatDialog) {
+              private matDialog: MatDialog,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -65,5 +67,9 @@ export class AdminKassenbuchComponent implements OnInit {
     this.apiService.deleteKassenbuch(id).subscribe(() => {
       this.dataSource.data = this.dataSource.data.filter(kassenbuch => kassenbuch.id != id);
     });
+  }
+
+  displayKassenbuch(kassenbuch: Kassenbuch) {
+    this.router.navigate(['admin', 'kassenbuch', kassenbuch.id]).then()
   }
 }

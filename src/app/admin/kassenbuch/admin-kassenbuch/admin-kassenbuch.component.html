@@ -16,19 +16,20 @@
       <!-- User Column -->
       <ng-container matColumnDef="user">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> User </th>
-        <td mat-cell *matCellDef="let row"> {{ row.user?.email}}</td>
+        <td mat-cell *matCellDef="let row"> {{ row.user?.id}}</td>
       </ng-container>
 
       <!-- TransactionList Column -->
       <ng-container matColumnDef="transactionList">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> TransactionList </th>
-        <td mat-cell *matCellDef="let row"> {{ row.transactionList?.join(',')}}</td>
+        <td mat-cell *matCellDef="let row"> {{ row.transactionList?.id}}</td>
       </ng-container>
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
         <td mat-cell *matCellDef="let row">
           <div class="action-div">
+            <mat-icon class="display-icon" (click)="displayKassenbuch(row)">remove_red_eye</mat-icon>
             <mat-icon class="edit-icon" (click)="editKassenbuch(row)">edit</mat-icon>
             <mat-icon class="delete-icon" (click)="deleteKassenbuch(row.id)">delete</mat-icon>
           </div>

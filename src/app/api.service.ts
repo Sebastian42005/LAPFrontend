@@ -39,6 +39,54 @@ export class ApiService {
     return this.get(`/kassenbuch/${id}/transactions`)
   }
 
+  //Category
+
+  createCategory(category: Category): Observable<Category> {
+    return this.post<Category>('/category', category)
+  }
+
+  updateCategory(category: Category) {
+    return this.put<Category>('/category', category)
+  }
+
+  getAllCategories(): Observable<Category[]> {
+    return this.get<Category[]>('/category')
+  }
+
+  getCategory(id: number): Observable<Category> {
+    return this.get<Category>(`/category/${id}`)
+  }
+
+  deleteCategory(id: number): Observable<any> {
+    return this.delete(`/category/${id}`)
+  }
+
+
+  //Kassenbuch
+
+  createKassenbuch(kassenbuch: Kassenbuch): Observable<Kassenbuch> {
+    return this.post<Kassenbuch>('/kassenbuch', kassenbuch)
+  }
+
+  updateKassenbuch(kassenbuch: Kassenbuch) {
+    return this.put<Kassenbuch>('/kassenbuch', kassenbuch)
+  }
+
+  getAllKassenbuchs(): Observable<Kassenbuch[]> {
+    return this.get<Kassenbuch[]>('/kassenbuch')
+  }
+
+  getKassenbuch(id: number): Observable<Kassenbuch> {
+    return this.get<Kassenbuch>(`/kassenbuch/${id}`)
+  }
+
+  deleteKassenbuch(id: number): Observable<any> {
+    return this.delete(`/kassenbuch/${id}`)
+  }
+
+
+  //Transaction
+
   createTransaction(transaction: Transaction): Observable<Transaction> {
     return this.post<Transaction>('/transaction', transaction)
   }
@@ -60,50 +108,6 @@ export class ApiService {
   }
 
 
-  //Category
-
-  createCategory(category: Category): Observable<Category> {
-    return this.post<Category>('/category', category)
-  }
-
-  updateCategory(category: Category) {
-    return this.put<Category>('/category', category)
-  }
-
-  getAllCategories(): Observable<Category[]> {
-    return this.get<Category[]>('/category')
-  }
-
-  getCategory(id: number): Observable<Category> {
-    return this.get<Category>(`/category${id}`)
-  }
-
-  deleteCategory(id: number): Observable<any> {
-    return this.delete(`/category/${id}`)
-  }
-
-  //Kassenbuch
-
-  createKassenbuch(kassenbuch: Kassenbuch): Observable<Kassenbuch> {
-    return this.post<Kassenbuch>('/kassenbuch', kassenbuch)
-  }
-
-  updateKassenbuch(kassenbuch: Kassenbuch) {
-    return this.put<Kassenbuch>('/kassenbuch', kassenbuch)
-  }
-
-  getAllKassenbuchs(): Observable<Kassenbuch[]> {
-    return this.get<Kassenbuch[]>('/kassenbuch')
-  }
-
-  getKassenbuch(id: number): Observable<Kassenbuch> {
-    return this.get<Kassenbuch>(`/kassenbuch${id}`)
-  }
-
-  deleteKassenbuch(id: number): Observable<any> {
-    return this.delete(`/kassenbuch/${id}`)
-  }
-
   //User
 
   createUser(user: User): Observable<User> {
@@ -119,12 +123,14 @@ export class ApiService {
   }
 
   getUser(id: number): Observable<User> {
-    return this.get<User>(`/user${id}`)
+    return this.get<User>(`/user/${id}`)
   }
 
   deleteUser(id: number): Observable<any> {
     return this.delete(`/user/${id}`)
   }
+
+
   private get<T>(url: string): Observable<T> {
     return this.httpClient.get<T>(baseUrl + url, {
       headers: this.getHeaders()

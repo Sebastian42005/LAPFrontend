@@ -1,0 +1,24 @@
+<div class="details-page">
+  <div class="header">
+    <h1>Kassenbuch Details</h1>
+  </div>
+
+  <div class="content">
+    <div class="details">
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="label">Id:</span>
+          <span class="value">{{ kassenbuch.id }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">User:</span>
+          <span class="value">{{ kassenbuch.user?.email }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn secondary" (click)="goBack()">Back</button>
+  </div>
+</div>

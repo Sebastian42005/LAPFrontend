@@ -8,13 +8,21 @@ import {AdminTransactionComponent} from "./admin/transaction/admin-transaction/a
 import {
   AdminDetailtransactionComponent
 } from "./admin/transaction/admin-detailtransaction/admin-detailtransaction.component";
+import {AdminDetailCategoryComponent} from "./admin/category/admin-detail-category/admin-detail-category.component";
+import {
+  AdminDetailKassenbuchComponent
+} from "./admin/kassenbuch/admin-detail-kassenbuch/admin-detail-kassenbuch.component";
+import {AdminDetailUserComponent} from "./admin/user/admin-detail-user/admin-detail-user.component";
 
 const routes: Routes = [
   {path: 'admin/category', component: AdminCategoryComponent},
+  {path: 'admin/category/:id', component: AdminDetailCategoryComponent},
   {path: 'admin/kassenbuch', component: AdminKassenbuchComponent},
-  {path: 'admin/user', component: AdminUserComponent},
+  {path: 'admin/kassenbuch/:id', component: AdminDetailKassenbuchComponent},
   {path: 'admin/transaction', component: AdminTransactionComponent},
   {path: 'admin/transaction/:id', component: AdminDetailtransactionComponent},
+  {path: 'admin/user', component: AdminUserComponent},
+  {path: 'admin/user/:id', component: AdminDetailUserComponent},
   {path: '', component: StatisticComponent}
 ];
 
